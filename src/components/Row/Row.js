@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import tmdbApiClient from "../../api/TMDBApiClient";
 
+const base_url = "https://api.themoviedb.org/t/p/original"
 
 
 function Row({ title, fetchUrl }) {
@@ -20,17 +21,15 @@ function Row({ title, fetchUrl }) {
 
     return(
         <div className="row">
-        <h2>{title}</h2>
+            <h2>{title}</h2>
 
-        <div className="row_posters">
-        {/*several row_posters */}
+            <div className="row_posters">
+                {/*several row_posters */}
 
-        {movies.map(movie =>( <img src={movie.poster_path} alt={movie.name}/>
-        ))}
+                {movies.map(movie =>( <img src={`${base_url}${movie.poster_path}`} alt={movie.name}/>
+                ))}
 
-        </div>
-        {/* container -> posters*/}
-        
+            </div>
         </div>
     )
     
