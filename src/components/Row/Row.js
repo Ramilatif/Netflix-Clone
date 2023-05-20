@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import tmdbApiClient from "../../api/TMDBApiClient";
 
-const base_url = "https://api.themoviedb.org/t/p/original"
+const base_url = "https://image.tmdb.org/t/p/w500/"
 
 
 function Row({ title, fetchUrl }) {
