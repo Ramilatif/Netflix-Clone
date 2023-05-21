@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import tmdbApiClient from "../../api/TMDBApiClient";
 import "./Row.css";
 
-const base_url = "https://image.tmdb.org/t/p/w200";
+const base_url = "https://image.tmdb.org/t/p/original";
 
 function Row({ title, fetchUrl, isLargeRow }) {
   const [movies, setMovies] = useState([]);
@@ -17,7 +17,7 @@ function Row({ title, fetchUrl, isLargeRow }) {
   }, [fetchUrl]);
 
   console.table(movies);
-
+  const s = "row_poster " + (isLargeRow ? "row_posterLarge" : "");
   return (
     <div className="row">
       <h2>{title}</h2>
@@ -28,7 +28,7 @@ function Row({ title, fetchUrl, isLargeRow }) {
         {movies.map((movie) => (
           <img
             key={movie.id}
-            className={`row_poster`}
+            className={`row_poster ${isLargeRow && "row_posterLarge"}`}
             src={`${base_url}${
               isLargeRow ? movie.poster_path : movie.backdrop_path
             }`}
