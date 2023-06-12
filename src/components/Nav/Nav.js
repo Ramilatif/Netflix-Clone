@@ -16,7 +16,6 @@ function Nav() {
       window.removeEventListener("scroll", scrollEventhandler);
     };
   }, []);
-console.log("show", show)
   return (
     <div className={`nav ${show && "nav_black"}`}>
       <img
